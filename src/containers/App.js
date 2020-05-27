@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
@@ -6,41 +7,43 @@ import ErrorBoundry from '../components/ErrorBoundry';
 //import {cats} from './cats';
 import './App.css';
 
+import { setSearchField, requestCats } from '../actions';
+
+const mapStateToProps = state => {
+    return {
+        searchField: state.searchCats.searchField,
+        cats: state.requestCats.cats,
+        isPending: state.requestCats.isPending,
+        error: state.requestCats.error
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+        onRequestCats: () => requestCats(dispatch)
+    };
+};
+
 class App extends Component {
     
-    constructor() {
-        super();
-        this.state = {
-            //cats: cats,
-            cats: [],
-            searchfield: ''
-        };
-    }
-    
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(users => this.setState({cats: users}));
-        //this.setState({ cats: cats });
-    }
-    
-    onSearchChange = (event) => {
-        this.setState({ searchfield: event.target.value });
+        this.props.onRequestCats();
     }
     
     render() {
-        const { cats, searchfield } = this.state;
+        const { searchField, onSearchChange, cats, isPending } = this.props;
         const filterCats = cats.filter(cat => {
-            return cat.name.toLowerCase().includes(searchfield.toLowerCase());
+            return cat.name.toLowerCase().includes(searchField.toLowerCase());
         });
         
-        if(!cats.length) {
+        if(isPending) {
             return <h1 className='tc pt7'>LOADING...</h1>;
         } else {
             return(
                 <div className='tc'>
                     <h1 className='f1'>Cat Friends</h1>
-                    <SearchBox searchChange={this.onSearchChange}/>
+                    <SearchBox searchChange={onSearchChange}/>
                     <Scroll>
                         <ErrorBoundry>
                             <CardList cats={filterCats}/>
@@ -52,4 +55,4 @@ class App extends Component {
     }
  };
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);
