@@ -1,2 +1,2 @@
-# robofriends
+# catfriends
 React App
