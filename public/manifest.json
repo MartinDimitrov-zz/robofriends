@@ -1,19 +1,34 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "short_name": "CatFriends",
+  "name": "Cat Friends React prog App",
+  "icons": [    
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "./ico/favicon-16x16.png",
+      "sizes": "16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "./ico/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./ico/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "./ico/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "./ico/android-chrome-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "./ico/Icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
