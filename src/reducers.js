@@ -19,9 +19,8 @@ export const searchCats = (state=initialStateSearch, action={}) => {
 };
 
 const initialStateCats = {
-    isPending: false,
-    cats: [],
-    error: ''
+    isPending: true,
+    cats: []
 };
 
 export const requestCats = (state=initialStateCats, action={}) => {
@@ -31,7 +30,7 @@ export const requestCats = (state=initialStateCats, action={}) => {
         case REQUEST_CATS_SUCCESS:
             return Object.assign({}, state, { cats: action.payload, isPending: false });
         case REQUEST_CATS_FAILED:
-            return Object.assign({}, state, { error: action.payload, isPending: false });
+            return Object.assign({}, state, { error: action.payload });
         default:
             return state;
     }

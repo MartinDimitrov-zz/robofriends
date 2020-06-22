@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render SearchBox component 1`] = `
+"<div className=\\"pa2\\">
+  <label>
+    <input area-label=\\"Search Cats\\" className=\\"pa3 ba b--green bg-lightest-blue\\" type=\\"search\\" placeholder=\\"Search cats\\" onChange={[undefined]} />
+  </label>
+</div>"
+`;

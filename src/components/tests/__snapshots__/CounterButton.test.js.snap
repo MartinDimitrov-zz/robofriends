@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`correnctly increments the counter 1`] = `ShallowWrapper {}`;
+
+exports[`renders without crashing 1`] = `
+"<button id=\\"counter\\" color={[undefined]} onClick={[Function: onClick]}>
+  Count: 
+  0
+</button>"
+`;
