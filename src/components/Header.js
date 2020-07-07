@@ -11,7 +11,7 @@ class Header extends Component {
         return(
             <div>                
                 <h1 className='f1'>Cat Friends</h1>
-                <CounterButton color={'red'}/>
+                <CounterButton color={'red'}/>                
             </div>            
         );
     }
