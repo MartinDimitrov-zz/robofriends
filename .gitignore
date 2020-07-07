@@ -3,6 +3,9 @@
 node_modules
 
 .DS_STORE
+.DS_Store
+.env
+package-lock.json
 node_modules
 build/
 coverage/
